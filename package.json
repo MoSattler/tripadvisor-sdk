@@ -1,0 +1,46 @@
+{
+  "name": "tripadvisor-sdk",
+  "license": "MIT",
+  "type": "module",
+  "source": "src/index.ts",
+  "exports": {
+    "require": "./dist/tripadvisor-sdk.cjs",
+    "default": "./dist/tripadvisor-sdk.modern.js"
+  },
+  "types": "dist/tripadvisor-sdk.d.ts",
+  "main": "./src/index.ts",
+  "module": "./dist/tripadvisor-sdk.module.js",
+  "unpkg": "./dist/tripadvisor-sdk.umd.js",
+  "publishConfig": {
+    "main": "./dist/tripadvisor-sdk.cjs"
+  },
+  "scripts": {
+    "build": "microbundle",
+    "dev": "microbundle watch",
+    "prepare": "husky install",
+    "test": "jest --watch",
+    "test:ci": "jest --collect-coverage"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.5.1",
+    "@types/superagent": "^4.1.15",
+    "@typescript-eslint/eslint-plugin": "^5.26.0",
+    "@typescript-eslint/parser": "^5.26.0",
+    "eslint": "^8.16.0",
+    "eslint-plugin-jest": "^26.2.2",
+    "husky": ">=6",
+    "jest": "^28.1.0",
+    "lint-staged": ">=10",
+    "microbundle": "^0.15.0",
+    "nock": "^13.2.4",
+    "prettier": "^2.6.2",
+    "ts-jest": "^28.0.3"
+  },
+  "dependencies": {
+    "superagent": "^7.1.3"
+  },
+  "lint-staged": {
+    "*.ts": "eslint --cache --fix",
+    "*.{ts,json,md}": "prettier --write"
+  }
+}
